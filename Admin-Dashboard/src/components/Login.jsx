@@ -10,7 +10,9 @@ export default function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === 'admin' && password === 'babushka') {
+    const validUsername = import.meta.env.VITE_ADMIN_USERNAME || 'admin';
+    const validPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'admin';
+    if (username === validUsername && password === validPassword) {
       localStorage.setItem('bithub_admin_auth', 'true');
       navigate('/');
     } else {

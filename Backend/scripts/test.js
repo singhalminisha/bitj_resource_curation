@@ -4,7 +4,7 @@ async function test() {
         host: 'hayabusa.proxy.rlwy.net',
         port: 33968,
         user: 'root',
-        password: 'IQcKGgDgoShBXKQRjzWzVNAsTXZGczjL',
+        password: process.env.DB_PASS || '',
         database: 'railway'
     });
     const [rows] = await pool.query("SELECT JSON_ARRAYAGG(JSON_OBJECT('id', question_uid)) FROM questions LIMIT 2;");
